@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "Checkpoint",
+    "subtitle": "Built with Zara",
+    "description": "Checkpoint is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app",
+    "splashImageUrl": "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app/image.png",
+    "tagline": "Checkpoint",
+    "screenshotUrls": [
+      "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app/screenshot.png",
+      "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://5fc75f8166b14391b6853ce94c4c60f9-adv8.vercel.app/api/webhook"
+  }
+}
