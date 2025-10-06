@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cyberpunk Security Theme - Dark with Neon Green */
+  --color-bg: hsl(270, 30%, 8%);
+  --color-fg: hsl(120, 100%, 95%);
+  --color-accent: hsl(120, 100%, 50%);
+  --color-accent-hover: hsl(120, 100%, 40%);
+  --color-primary: hsl(280, 70%, 55%);
+  --color-primary-hover: hsl(280, 70%, 45%);
+  --color-surface: hsl(270, 25%, 12%);
+  --color-surface-hover: hsl(270, 25%, 16%);
+  --color-border: hsl(120, 100%, 50%);
+  --color-danger: hsl(0, 100%, 60%);
+  --color-success: hsl(120, 100%, 50%);
+  --color-warning: hsl(45, 100%, 50%);
+  --color-text-muted: hsl(120, 20%, 65%);
+  --color-glass: hsla(270, 25%, 12%, 0.7);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-full: 9999px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  --shadow-card: 0 0 20px hsla(120, 100%, 50%, 0.15);
+  --shadow-elevated: 0 0 30px hsla(120, 100%, 50%, 0.25);
+  --shadow-glow: 0 0 40px hsla(120, 100%, 50%, 0.4);
+}
+
+[data-theme="celo"] {
+  --color-bg: hsl(0, 0%, 0%);
+  --color-fg: hsl(0, 0%, 100%);
+  --color-accent: hsl(45, 98%, 68%);
+  --color-accent-hover: hsl(45, 98%, 58%);
+  --color-primary: hsl(45, 98%, 68%);
+  --color-primary-hover: hsl(45, 98%, 58%);
+  --color-surface: hsl(0, 0%, 8%);
+  --color-surface-hover: hsl(0, 0%, 12%);
+  --color-border: hsl(45, 98%, 68%);
+  --color-danger: hsl(0, 84%, 60%);
+  --color-success: hsl(142, 71%, 45%);
+  --color-warning: hsl(38, 92%, 50%);
+  --color-text-muted: hsl(0, 0%, 65%);
+  --color-glass: hsla(0, 0%, 8%, 0.7);
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-bg text-fg;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  }
+
+  /* Cyberpunk grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass backdrop-blur-md border border-accent;
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-primary {
+    @apply bg-accent text-bg px-6 py-3 font-bold uppercase tracking-wider hover:bg-accent-hover transition-all duration-200 shadow-glow;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white px-6 py-3 font-bold uppercase tracking-wider hover:opacity-90 transition-all duration-200;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .checkpoint-card {
+    @apply glass-card p-4 hover:bg-surface-hover transition-all duration-200;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+
+  .progress-bar {
+    @apply h-1 bg-surface relative overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-accent transition-all duration-300;
+    box-shadow: 0 0 10px var(--color-accent);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
+  }
+
+  .cyber-border {
+    position: relative;
+  }
+
+  .cyber-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-accent), var(--color-primary));
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .text-display {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  .text-title {
+    @apply text-2xl font-semibold;
+  }
+
+  .text-heading {
+    @apply text-xl font-semibold;
+  }
+
+  .text-body {
+    @apply text-base leading-7;
+  }
+
+  .text-caption {
+    @apply text-sm text-text-muted;
+  }
+
+  .text-micro {
+    @apply text-xs uppercase tracking-wide font-medium;
+  }
+}
